@@ -6,6 +6,7 @@ set filetype=         " type of file; triggers the FileType event when set
 set hidden            " don't unload a buffer when no longer shown in a window
 set ignorecase        " ignore case when using a search pattern
 set incsearch         " show match for partly typed search command
+set nohlsearch        " highlight all matches for the last used search pattern
 set number            " show the line number for each line
 set shiftwidth=4      " number of spaces used for each step of (auto)indent
 set showcmd           " show (partial) command keys in the status line
