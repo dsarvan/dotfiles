@@ -19,6 +19,16 @@ set tabstop=4         " number of spaces a <Tab> in the text stands for
 set term=st-256color  " name of the used terminal
 set textwidth=80      " line length above which to break a line
 
+
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+command! TrimWhitespace call TrimWhitespace()
+
+
 highlight LineNr ctermfg=DarkGrey ctermbg=None
 highlight StatusLine ctermfg=White ctermbg=Black cterm=None
 highlight StatusLineNC ctermfg=White ctermbg=Black cterm=None
@@ -26,6 +36,7 @@ highlight TabLine ctermfg=DarkGrey ctermbg=None
 highlight TabLineFill ctermfg=233 ctermbg=None
 highlight TabLineSel ctermfg=White ctermbg=None
 highlight VertSplit ctermfg=DarkGrey ctermbg=None cterm=None
+
 
 autocmd FileType c setlocal ts=8 sw=8 sts=8 noexpandtab
 autocmd FileType html setlocal ts=2 sw=2 sts=2 expandtab
