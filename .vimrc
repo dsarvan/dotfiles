@@ -1,5 +1,5 @@
 set autoindent        " automatically set the indent of a new line
-set autowrite         " automatically write file when leaving a modified hbuffer
+set autowrite         " automatically write file when leaving a modified buffer
 set encoding=utf-8    " character encoding used in vim: "utf-8"
 set expandtab         " expand <Tab> to spaces in Insert mode
 set filetype=         " type of file; triggers the FileType event when set
@@ -16,12 +16,16 @@ set smartindent       " do clever autoindenting
 set softtabstop=4     " if non-zero, number of spaces to insert for a <Tab>
 set spelllang=en_us   " list of accepted languages
 set tabstop=4         " number of spaces a <Tab> in the text stands for
+set term=st-256color  " name of the used terminal
 set textwidth=80      " line length above which to break a line
 
-hi LineNr ctermfg=DarkGrey ctermbg=None
-hi TabLineFill ctermfg=233 ctermbg=None
-hi TabLine ctermfg=DarkGrey ctermbg=None
-hi TabLineSel ctermfg=White ctermbg=None
+highlight LineNr ctermfg=DarkGrey ctermbg=None
+highlight StatusLine ctermfg=White ctermbg=Black cterm=None
+highlight StatusLineNC ctermfg=White ctermbg=Black cterm=None
+highlight TabLine ctermfg=DarkGrey ctermbg=None
+highlight TabLineFill ctermfg=233 ctermbg=None
+highlight TabLineSel ctermfg=White ctermbg=None
+highlight VertSplit ctermfg=DarkGrey ctermbg=None cterm=None
 
 autocmd FileType c setlocal ts=8 sw=8 sts=8 noexpandtab
 autocmd FileType html setlocal ts=2 sw=2 sts=2 expandtab
