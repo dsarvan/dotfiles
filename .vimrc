@@ -38,6 +38,15 @@ highlight TabLineSel ctermfg=White ctermbg=None
 highlight VertSplit ctermfg=DarkGrey ctermbg=None cterm=None
 
 
+if has("autocmd")
+    augroup templates
+        autocmd BufNewFile *.jl 0y ~/.vim/templates/skeleton.jl
+        autocmd BufNewFile *.py 0r ~/.vim/templates/skeleton.py
+        autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
+    augroup END
+endif
+
+
 autocmd FileType c setlocal ts=8 sw=8 sts=8 noexpandtab
 autocmd FileType html setlocal ts=2 sw=2 sts=2 expandtab
 autocmd FileType javascript setlocal ts=4 sw=4 sts=4 noexpandtab
