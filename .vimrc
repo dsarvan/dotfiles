@@ -54,6 +54,7 @@ if has("autocmd")
     augroup templates
         autocmd BufNewFile *.html 0r ~/.vim/templates/template.html
         autocmd BufNewFile *.jl 0r ~/.vim/templates/template.jl
+        autocmd BufNewFile *.m 0r ~/.vim/templates/template.m
         autocmd BufNewFile *.py 0r ~/.vim/templates/template.py
         autocmd BufNewFile *.sh 0r ~/.vim/templates/template.sh
     augroup END
