@@ -21,22 +21,22 @@ set textwidth=80      " line length above which to break a line
 
 
 " netrw file browser configuration
+let g:netrw_altv = 1
 let g:netrw_banner = 0
+let g:netrw_winsize = 25
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
 augroup ProjectDrawer
     autocmd!
     autocmd VimEnter * :Vexplore
 augroup END
 
 
-fun! TrimWhitespace()
+function! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
     call winrestview(l:save)
-endfun
+endfunction
 
 command! TrimWhitespace call TrimWhitespace()
 
@@ -52,9 +52,10 @@ highlight VertSplit ctermfg=DarkGrey ctermbg=None cterm=None
 
 if has("autocmd")
     augroup templates
-        autocmd BufNewFile *.jl 0y ~/.vim/templates/skeleton.jl
-        autocmd BufNewFile *.py 0r ~/.vim/templates/skeleton.py
-        autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
+        autocmd BufNewFile *.html 0r ~/.vim/templates/template.html
+        autocmd BufNewFile *.jl 0r ~/.vim/templates/template.jl
+        autocmd BufNewFile *.py 0r ~/.vim/templates/template.py
+        autocmd BufNewFile *.sh 0r ~/.vim/templates/template.sh
     augroup END
 endif
 
