@@ -2,15 +2,20 @@ set autoindent        " automatically set the indent of a new line
 set autowrite         " automatically write file when leaving a modified buffer
 set encoding=utf-8    " character encoding used in vim: "utf-8"
 set expandtab         " expand <Tab> to spaces in Insert mode
+set exrc              " enable reading .vimrc/.exrc/.gvimrc in current directory
 set filetype=         " type of file; triggers the FileType event when set
 set hidden            " don't unload a buffer when no longer shown in a window
 set ignorecase        " ignore case when using a search pattern
 set incsearch         " show match for partly typed search command
+set noerrorbells      " don't ring the bell for error messages
 set nohlsearch        " highlight all matches for the last used search pattern
+set noshowmode        " don't display the current mode in the status line
 set number            " show the line number for each line
+set scrolloff=0       " number of screen lines to show around the cursor
 set shiftwidth=4      " number of spaces used for each step of (auto)indent
 set showcmd           " show (partial) command keys in the status line
 set showmatch         " when inserting a bracket, briefly jump to its match
+set showtabline=0     " don't show the tab page line (default set showtabline=1)
 set smartcase         " override 'ignorecase' when pattern has upper case char
 set smartindent       " do clever autoindenting
 set softtabstop=4     " if non-zero, number of spaces to insert for a <Tab>
@@ -23,7 +28,7 @@ set textwidth=80      " line length above which to break a line
 " netrw file browser configuration
 let g:netrw_altv = 1
 let g:netrw_banner = 0
-let g:netrw_winsize = 25
+let g:netrw_winsize = 20
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 augroup ProjectDrawer
