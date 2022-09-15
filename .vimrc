@@ -31,10 +31,10 @@ let g:netrw_banner = 0
 let g:netrw_winsize = 20
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
-augroup ProjectDrawer
-    autocmd!
-    autocmd VimEnter * :Vexplore
-augroup END
+"augroup ProjectDrawer
+"    autocmd!
+"    autocmd VimEnter * :Vexplore
+"augroup END
 
 
 function! TrimWhitespace()
@@ -66,6 +66,11 @@ if has("autocmd")
 endif
 
 
-autocmd FileType c setlocal ts=8 sw=8 sts=8 noexpandtab
-autocmd FileType html setlocal ts=2 sw=2 sts=2 expandtab
-autocmd FileType javascript setlocal ts=4 sw=4 sts=4 noexpandtab
+if has("autocmd")
+    filetype on
+    autocmd FileType c setlocal ts=8 sts=8 sw=8 noexpandtab
+    autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+    autocmd FileType julia setlocal ts=4 sts=4 sw=4 noexpandtab
+    autocmd FileType python setlocal ts=4 sts=4 sw=4 noexpandtab
+endif
