@@ -1,0 +1,45 @@
+# Zathura configuration file
+# read "man zathurarc"
+
+# define auto adjustment mode
+set adjust-open "best-fit"
+
+# define the number of pages that are rendered next
+set pages-per-row 1
+
+# define the maximum, minimum & amount of percent for zoom level
+set zoom-max 1000
+set zoom-min 100
+set zoom-step 20
+
+# define the font that will be used
+set font "DejaVu Sans Mono 9"
+
+# define the color for the index mode
+set index-bg                "#121317"
+set index-fg                "#dcdcdc"
+set index-active-bg         "#dcdcdc"
+set index-active-fg         "#121317"
+
+# define the background & foreground color for the inputbar
+set inputbar-bg             "#121317"
+set inputbar-fg             "#dcdcdc"
+
+# define the background & foreground color of the statusbar
+set statusbar-bg            "#121317"
+set statusbar-fg            "#dcdcdc"
+
+# define the color that is used for highlighting parts of the document
+set highlight-color         "#cccccc"
+set highlight-fg            "#dcdcdc"
+set highlight-active-color  "#121317"
+set highlight-transparency  0.4
+
+# define the default background & foreground color
+set default-bg              "#121317"
+set default-fg              "#dcdcdc"
+
+# define if the "Loading..." text should be displayed if a page is rendered
+set render-loading          true
+set render-loading-bg       "#121317"
+set render-loading-fg       "#121317"
