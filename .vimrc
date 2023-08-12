@@ -25,6 +25,65 @@ set term=st-256color  " name of the used terminal
 set textwidth=80      " line length above which to break a line
 
 
+" color scheme
+highlight LineNr ctermfg=DarkGrey ctermbg=None
+highlight StatusLine ctermfg=White ctermbg=Black cterm=None
+highlight StatusLineNC ctermfg=White ctermbg=Black cterm=None
+highlight TabLine ctermfg=DarkGrey ctermbg=None
+highlight TabLineFill ctermfg=233 ctermbg=None
+highlight TabLineSel ctermfg=White ctermbg=None
+highlight VertSplit ctermfg=DarkGrey ctermbg=None cterm=None
+
+
+" remove trailing whitespace on command
+function! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfunction
+
+command! WS call TrimWhitespace()
+
+
+" remove trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
+
+
+" automatically close brackets, parethesis, double quotes, and single quotes
+"inoremap " ""<left>
+"inoremap ' ''<left>
+"inoremap ( ()<left>
+"inoremap [ []<left>
+"inoremap { {}<left>
+"inoremap {; {};<left><left>
+"inoremap /* /**/<left><left>
+
+
+" templates
+if has("autocmd")
+    augroup templates
+        autocmd BufNewFile *.html 0r ~/.vim/templates/template.html
+        autocmd BufNewFile *.jl 0r ~/.vim/templates/template.jl
+        autocmd BufNewFile *.js 0r ~/.vim/templates/templage.js
+        autocmd BufNewFile *.m 0r ~/.vim/templates/template.m
+        autocmd BufNewFile *.py 0r ~/.vim/templates/template.py
+        autocmd BufNewFile *.sh 0r ~/.vim/templates/template.sh
+    augroup END
+endif
+
+
+" tabstop, softtabstop, shiftwidth
+if has("autocmd")
+    filetype on
+    autocmd FileType c setlocal ts=8 sts=8 sw=8 noexpandtab
+    autocmd FileType haskell setlocal ts=8 sts=8 sw=8 expandtab
+    autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+    autocmd FileType julia setlocal ts=4 sts=4 sw=4 noexpandtab
+    autocmd FileType python setlocal ts=4 sts=4 sw=4 noexpandtab
+endif
+
+
 " netrw file browser configuration
 let g:netrw_altv = 1
 let g:netrw_banner = 0
@@ -35,43 +94,3 @@ let g:netrw_browse_split = 4
 "    autocmd!
 "    autocmd VimEnter * :Vexplore
 "augroup END
-
-
-function! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfunction
-
-command! TrimWhitespace call TrimWhitespace()
-
-
-highlight LineNr ctermfg=DarkGrey ctermbg=None
-highlight StatusLine ctermfg=White ctermbg=Black cterm=None
-highlight StatusLineNC ctermfg=White ctermbg=Black cterm=None
-highlight TabLine ctermfg=DarkGrey ctermbg=None
-highlight TabLineFill ctermfg=233 ctermbg=None
-highlight TabLineSel ctermfg=White ctermbg=None
-highlight VertSplit ctermfg=DarkGrey ctermbg=None cterm=None
-
-
-if has("autocmd")
-    augroup templates
-        autocmd BufNewFile *.html 0r ~/.vim/templates/template.html
-        autocmd BufNewFile *.jl 0r ~/.vim/templates/template.jl
-        autocmd BufNewFile *.m 0r ~/.vim/templates/template.m
-        autocmd BufNewFile *.py 0r ~/.vim/templates/template.py
-        autocmd BufNewFile *.sh 0r ~/.vim/templates/template.sh
-    augroup END
-endif
-
-
-if has("autocmd")
-    filetype on
-    autocmd FileType c setlocal ts=8 sts=8 sw=8 noexpandtab
-    autocmd FileType haskell setlocal ts=8 sts=8 sw=8 expandtab
-    autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
-    autocmd FileType julia setlocal ts=4 sts=4 sw=4 noexpandtab
-    autocmd FileType python setlocal ts=4 sts=4 sw=4 noexpandtab
-endif
