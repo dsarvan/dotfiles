@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -47,12 +47,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-        # We have color support; assume it's compliant with Ecma-48
-        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-        # a case would tend to support setf rather than setaf.)
-        color_prompt=yes
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
     else
-        color_prompt=
+	color_prompt=
     fi
 fi
 
@@ -66,7 +66,7 @@ unset color_prompt force_color_prompt
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\h: \w\a\]$PS1"
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
     ;;
 *)
     ;;
@@ -110,24 +110,20 @@ fi
 # shell function for finding factorial of the integer
 fact() { (echo 1; seq $1) | paste -s -d\* | bc; }
 
-# youtube-dl alias
-alias ytdl0='youtube-dl --extract-audio --audio-format mp3'
-alias ytdl1='youtube-dl -F'
-alias ytdl2='youtube-dl -f'
-
 # screencast
 alias scast='ffmpeg x11grab -r 30 -s 1920x1080 -i :0.0 -acodec aac -vcodec libx264 -crf 0 -preset medium output.mp4'
 
-# julia current stable release v1.7.3
-export PATH="$PATH:/home/saran/.julia/bin"
+# julia current stable release v1.9.2
+export PATH="$HOME/.julia/bin:$PATH"
 
-# rust current stable release 1.62.1
+# go current stable release 1.21.0
+export PATH=$PATH:/usr/local/go/bin
+
+# rust current stable release 1.71.0
 . "$HOME/.cargo/env"
-export PATH="$PATH:$HOME/.cargo/env"
 
-# git-mv-with-history
-export PATH="$PATH:$HOME/.gmwh/"
+# deno current stable release 1.35.2
+export PATH="$HOME/.deno/bin:$PATH"
 
-# go current stable release 1.19.1
-export GOPATH="$HOME/.go:$HOME/fynegui"
-export PATH="$PATH:/usr/local/go/bin:/$GOPATH/bin"
+# ghcup haskell installer version 0.1.19.4
+[ -f "/home/saran/.ghcup/env" ] && source "/home/saran/.ghcup/env" # ghcup-env
