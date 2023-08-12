@@ -1,0 +1,14 @@
+--ignore-errors
+--continue
+--no-overwrites
+--download-archive progress.txt
+#--external-downloader aria2c --external-downloader-args '-c -j 3 -x 3 -s 3 -k 1M'
+#--no-playlist
+--concurrent-fragments 1
+
+# save in ~/videos
+--paths $HOME/videos/fourier
+--output %(title)s.%(ext)s
+
+# prefer 1080p or lower resolutions
+-f bestvideo[ext=mp4][width<2000][height<=1200]+bestaudio[ext=m4a]/bestvideo[ext=webm][width<2000][height<=1200]+bestaudio[ext=webm]/bestvideo[width<2000][height<=1200]+bestaudio/best[width<2000][height<=1200]/best
