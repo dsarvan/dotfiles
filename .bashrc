@@ -113,6 +113,9 @@ fact() { (echo 1; seq $1) | paste -s -d\* | bc; }
 # screencast
 alias scast='ffmpeg x11grab -r 30 -s 1920x1080 -i :0.0 -acodec aac -vcodec libx264 -crf 0 -preset medium output.mp4'
 
+# git-mv-with-history
+export PATH="$PATH:$HOME/.gmwh/"
+
 # julia current stable release v1.9.2
 export PATH="$HOME/.julia/bin:$PATH"
 
