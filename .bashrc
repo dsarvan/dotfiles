@@ -116,17 +116,29 @@ alias scast='ffmpeg x11grab -r 30 -s 1920x1080 -i :0.0 -acodec aac -vcodec libx2
 # git-mv-with-history
 export PATH="$PATH:$HOME/.gmwh/"
 
+# git rename a file/directory and retain the history
+export PATH="$PATH:$HOME/.git-filter-repo/git-filter-repo"
+
 # julia current stable release v1.9.2
 export PATH="$HOME/.julia/bin:$PATH"
 
-# go current stable release 1.21.0
+# go current stable release 1.21.4
 export PATH=$PATH:/usr/local/go/bin
 
-# rust current stable release 1.71.0
+# gopath directory
+export GOPATH="$HOME/.gopath"
+export PATH=$GOPATH/bin:$PATH
+
+# rust current stable release 1.72.0
 . "$HOME/.cargo/env"
 
-# deno current stable release 1.35.2
+# deno current stable release 1.38.3
 export PATH="$HOME/.deno/bin:$PATH"
 
 # ghcup haskell installer version 0.1.19.4
 [ -f "/home/saran/.ghcup/env" ] && source "/home/saran/.ghcup/env" # ghcup-env
+
+# fortran package manager
+export PATH="$HOME/.local/bin:$PATH"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
