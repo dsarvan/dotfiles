@@ -25,14 +25,18 @@ set term=st-256color  " name of the used terminal
 set textwidth=80      " line length above which to break a line
 
 
-" color scheme
-highlight LineNr ctermfg=DarkGrey ctermbg=None
-highlight StatusLine ctermfg=White ctermbg=Black cterm=None
-highlight StatusLineNC ctermfg=White ctermbg=Black cterm=None
-highlight TabLine ctermfg=DarkGrey ctermbg=None
-highlight TabLineFill ctermfg=233 ctermbg=None
-highlight TabLineSel ctermfg=White ctermbg=None
-highlight VertSplit ctermfg=DarkGrey ctermbg=None cterm=None
+" color scheme [hi = highlight]
+hi LineNr ctermfg=DarkGrey ctermbg=None
+hi StatusLine ctermfg=White ctermbg=Black cterm=None
+hi StatusLineNC ctermfg=White ctermbg=Black cterm=None
+hi TabLine ctermfg=DarkGrey ctermbg=None
+hi TabLineFill ctermfg=233 ctermbg=None
+hi TabLineSel ctermfg=None ctermbg=None
+hi VertSplit ctermfg=DarkGrey ctermbg=None cterm=None
+hi DiffAdd ctermfg=Green ctermbg=None   " line was added
+hi DiffChange ctermfg=215 ctermbg=None  " part of the line was changed
+hi DiffDelete ctermfg=Red ctermbg=None  " line was removed
+hi DiffText ctermfg=Blue ctermbg=None   " the exact part of the line that changed
 
 
 " remove trailing whitespace on command
