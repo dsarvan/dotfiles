@@ -89,6 +89,9 @@ if has("autocmd")
 endif
 
 
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
+
 " netrw file browser configuration
 let g:netrw_altv = 1
 let g:netrw_banner = 0
