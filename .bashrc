@@ -142,3 +142,22 @@ export PATH="$HOME/.deno/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+case ":$PATH:" in
+    *:/home/saran/.juliaup/bin:*)
+        ;;
+
+    *)
+        export PATH=/home/saran/.juliaup/bin${PATH:+:${PATH}}
+        ;;
+esac
+
+# <<< juliaup initialize <<<
+
+# python: error while loading shared libraries: libpython3.12.so.1.0: cannot open
+# shared object file: No such file or directory
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
